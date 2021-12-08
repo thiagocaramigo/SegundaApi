@@ -75,7 +75,7 @@ app.post("/api/usuario/login",(req,res)=>{
         if(erro){
             return res.status(400).send({output:`Usuário não localizado->${erro}`});
         }
-        bycrpt.compare(sh,dados.senha,(erro,igual)=>{
+        bcrypt.compare(sh,dados.senha,(erro,igual)=>{
             if(erro) return res.status(400).send({output:`Erro ao tentar logar->${erro}`});
             if(!igual) return res.status(400).send({output:`Erro ao tentar logar->${erro}`});
             // const gerado = criaToken(dados.usuario,dados.nome);
